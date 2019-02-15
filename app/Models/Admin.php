@@ -46,8 +46,10 @@ class Admin extends Authenticatable
         return in_array($route, $rules);
     }
 
-    public function getExpireTimeAttribute($key)
+    public function getTtlAttribute()
     {
-        return $key ? Carbon::parse($key)->diffForHumans() : '无限期';
+        $ttl = $this->getAttribute('expire_time');
+        return $ttl ? Carbon::parse($ttl)->diffForHumans(Carbon::now()) : '无限期';
     }
+
 }

@@ -38,7 +38,7 @@
                             <td class="text-center">{{$item->last_login_ip}}</td>
                             <td class="text-center">{{$item->created_at->diffForHumans()}}</td>
                             <td class="text-center">{{$item->created_at->diffForHumans()}}</td>
-                            <td class="text-center">{{$item->expire_time}}</td>
+                            <td class="text-center">{{$item->ttl}}</td>
                             <td class="text-center">{{$item->create_ip}}</td>
                             <td class="text-center">{{$item->login_count}}</td>
                             <td class="text-center">

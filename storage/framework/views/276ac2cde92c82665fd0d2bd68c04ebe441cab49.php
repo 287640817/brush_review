@@ -38,7 +38,7 @@
                             <td class="text-center"><?php echo e($item->last_login_ip); ?></td>
                             <td class="text-center"><?php echo e($item->created_at->diffForHumans()); ?></td>
                             <td class="text-center"><?php echo e($item->created_at->diffForHumans()); ?></td>
-                            <td class="text-center"><?php echo e($item->expire_time); ?></td>
+                            <td class="text-center"><?php echo e($item->ttl); ?></td>
                             <td class="text-center"><?php echo e($item->create_ip); ?></td>
                             <td class="text-center"><?php echo e($item->login_count); ?></td>
                             <td class="text-center">

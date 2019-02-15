@@ -77,7 +77,7 @@
                 <div class="form-group">
                     <label class="col-sm-2 control-label">过期时间：</label>
                     <div class="input-group col-sm-4">
-                        <input class="form-control layer-date" value="<?php echo e($admin->expire_time); ?>" placeholder="YYYY-MM-DD hh:mm:ss" onclick="laydate({istime: true, format: 'YYYY-MM-DD hh:mm:ss'})">
+                        <input class="form-control layer-date"  name="expire_time"  value="<?php echo e($admin->expire_time); ?>" placeholder="YYYY-MM-DD hh:mm:ss" onclick="laydate({istime: true, format: 'YYYY-MM-DD hh:mm:ss'})">
                         <label class="laydate-icon"></label>
                     </div>
                 </div>
