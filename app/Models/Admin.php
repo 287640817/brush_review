@@ -20,6 +20,8 @@ class Admin extends Authenticatable
 
     protected $dates = ['expire_time'];
 
+    protected $appends = ['ttl'];
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
