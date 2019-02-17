@@ -30,6 +30,9 @@ class Admin extends Authenticatable
         return $this->belongsToMany(Role::class)->withTimestamps();
     }
 
+    public function comments(){
+        return $this->hasMany(Comment::class, 'admin_id', 'id');
+    }
     /**
      * 判断某个路由当前登录管理员是否有权限访问
      * @param $route

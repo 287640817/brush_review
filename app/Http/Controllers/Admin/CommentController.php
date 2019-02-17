@@ -4,9 +4,18 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\AddCommentsRequest;
+use App\Repositories\CommentsRepository;
+//use App\Presenters\PresentersFactory\CommentsPublishPresentersFactory;
 
 class CommentController extends Controller
 {
+
+    protected $commentsRepository;
+
+    public function __construct(CommentsRepository $commentsRepository){
+        $this->commentsRepository = $commentsRepository;
+    }
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +23,9 @@ class CommentController extends Controller
      */
     public function index()
     {
-        //
+        $comments = $this->commentsRepository->getComments();
+//        CommentsPublishPresentersFactory::bind()
+        return $this->view('admin.comment.index', compact('comments'));
     }
 
     /**
@@ -24,7 +35,7 @@ class CommentController extends Controller
      */
     public function create()
     {
-        //
+
     }
 
     /**
@@ -33,9 +44,11 @@ class CommentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(AddCommentsRequest $request)
     {
-        //
+//        $this->adminsService->create($request);
+//        flash('评论成功')->success()->important();
+//        return redirect()->route('comments.index');
     }
 
     /**

@@ -1,17 +1,17 @@
 /*
  Navicat Premium Data Transfer
 
- Source Server         : 127.0.0.1_3306
+ Source Server         : docker
  Source Server Type    : MySQL
- Source Server Version : 50724
+ Source Server Version : 50725
  Source Host           : 127.0.0.1:3306
  Source Schema         : brush_review
 
  Target Server Type    : MySQL
- Target Server Version : 50724
+ Target Server Version : 50725
  File Encoding         : 65001
 
- Date: 15/02/2019 17:53:46
+ Date: 17/02/2019 20:07:59
 */
 
 SET NAMES utf8mb4;
@@ -31,7 +31,7 @@ CREATE TABLE `action_logs`  (
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `action_logs_admin_id_index`(`admin_id`) USING BTREE,
   INDEX `action_logs_type_index`(`type`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 37 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 42 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of action_logs
@@ -72,6 +72,11 @@ INSERT INTO `action_logs` VALUES (33, 1, '{\"ip\": \"172.22.0.1\", \"action\": \
 INSERT INTO `action_logs` VALUES (34, 1, '{\"ip\": \"172.22.0.1\", \"action\": \"管理员: zl20117 操作了 【管理员管理】- 添加数据 模块\", \"address\": \"局域网局域网\"}', '2019-02-15 09:46:24', '2019-02-15 09:46:24', 1);
 INSERT INTO `action_logs` VALUES (35, 1, '{\"ip\": \"172.22.0.1\", \"action\": \"管理员: zl20117 操作了 【管理员管理】- 添加数据 模块\", \"address\": \"局域网局域网\"}', '2019-02-15 09:47:24', '2019-02-15 09:47:24', 1);
 INSERT INTO `action_logs` VALUES (36, 1, '{\"ip\": \"172.22.0.1\", \"action\": \"管理员: zl20117 操作了 【管理员管理】- 添加数据 模块\", \"address\": \"局域网局域网\"}', '2019-02-15 09:47:45', '2019-02-15 09:47:45', 1);
+INSERT INTO `action_logs` VALUES (37, NULL, '{\"ip\": \"172.19.0.1\", \"action\": \"管理员: zl20117 登录成功\", \"address\": \"局域网局域网\"}', '2019-02-16 11:01:25', '2019-02-16 11:01:25', 1);
+INSERT INTO `action_logs` VALUES (38, NULL, '{\"ip\": \"172.19.0.1\", \"action\": \"管理员: zl20117 登录成功\", \"address\": \"局域网局域网\"}', '2019-02-17 07:32:09', '2019-02-17 07:32:09', 1);
+INSERT INTO `action_logs` VALUES (39, NULL, '{\"ip\": \"172.19.0.1\", \"action\": \"管理员: zl20117 登录成功\", \"address\": \"局域网局域网\"}', '2019-02-17 11:55:29', '2019-02-17 11:55:29', 1);
+INSERT INTO `action_logs` VALUES (40, 1, '{\"ip\": \"172.19.0.1\", \"action\": \"管理员: zl20117 操作了 【权限管理】- 添加数据 模块\", \"address\": \"局域网局域网\"}', '2019-02-17 11:58:06', '2019-02-17 11:58:06', 1);
+INSERT INTO `action_logs` VALUES (41, 1, '{\"ip\": \"172.19.0.1\", \"action\": \"管理员: zl20117 操作了 【权限管理】- 数据更新 模块\", \"address\": \"局域网局域网\"}', '2019-02-17 11:58:26', '2019-02-17 11:58:26', 1);
 
 -- ----------------------------
 -- Table structure for admin_role
@@ -123,10 +128,25 @@ CREATE TABLE `admins`  (
 -- ----------------------------
 -- Records of admins
 -- ----------------------------
-INSERT INTO `admins` VALUES (1, 'b9Eb', 'zl20117', '$2y$10$aJt12sastIe1NxI5dJ9OJOB6ir8Ry/Ef.AhRVuf7l2ND.58tFAEna', '/uploads/images/avatrs/201711/13//1510542803_2gM4ffLylf.jpeg', 12, '127.0.0.1', '127.0.0.1', 1, '2017-11-12 11:21:32', '2019-02-15 06:47:48', NULL);
+INSERT INTO `admins` VALUES (1, 'b9Eb', 'zl20117', '$2y$10$aJt12sastIe1NxI5dJ9OJOB6ir8Ry/Ef.AhRVuf7l2ND.58tFAEna', '/uploads/images/avatrs/201711/13//1510542803_2gM4ffLylf.jpeg', 15, '127.0.0.1', '127.0.0.1', 1, '2017-11-12 11:21:32', '2019-02-17 11:55:28', NULL);
 INSERT INTO `admins` VALUES (7, 'gjNg', 'scw', '$2y$10$EY4cs6cT1DzVgUUQc617Bu1wzk2PpSzShmPPzM7MyFwJpVWnGTDEG', NULL, 4, '172.22.0.1', '172.22.0.1', 1, '2019-02-15 06:33:27', '2019-02-15 06:41:00', NULL);
 INSERT INTO `admins` VALUES (9, 'bw3b', 'zhulei', '$2y$10$KEGAslqNLMy6FsohnZsX9uW0VsucnM6KyoZsPFk8XypYxW0W6p5CS', NULL, 0, '172.22.0.1', '172.22.0.1', 1, '2019-02-15 08:57:47', '2019-02-15 08:57:47', NULL);
 INSERT INTO `admins` VALUES (14, 'lEov', 'test', '$2y$10$LkIdn88AQqWlTOD6CcvPIer.4lKKFGkuaRMojsJ9gWCCZVaoEBTJy', NULL, 0, '172.22.0.1', '172.22.0.1', 1, '2019-02-15 09:47:45', '2019-02-15 09:47:46', '2019-02-15 00:00:00');
+
+-- ----------------------------
+-- Table structure for comments
+-- ----------------------------
+DROP TABLE IF EXISTS `comments`;
+CREATE TABLE `comments`  (
+  `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `admin_id` int(11) NULL DEFAULT NULL,
+  `content` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '评论内容',
+  `is_publish` tinyint(1) NOT NULL DEFAULT 1 COMMENT '是否发布，0未发布，1已发布',
+  `is_used` tinyint(1) NOT NULL DEFAULT 0 COMMENT '是否领取，0未领取，1已领取',
+  `created_at` datetime(0) NULL DEFAULT NULL COMMENT '创建时间',
+  `updated_at` datetime(0) NULL DEFAULT NULL COMMENT '修改时间',
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci COMMENT = '评论表' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Table structure for migrations
@@ -137,7 +157,7 @@ CREATE TABLE `migrations`  (
   `migration` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `batch` int(11) NOT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 9 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 12 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of migrations
@@ -150,6 +170,8 @@ INSERT INTO `migrations` VALUES (5, '2017_11_09_104749_create_role_auth_table', 
 INSERT INTO `migrations` VALUES (6, '2017_11_17_075523_create_action_logs_table', 2);
 INSERT INTO `migrations` VALUES (7, '2017_11_21_072911_add_type_to_action_logs', 3);
 INSERT INTO `migrations` VALUES (8, '2017_11_21_102920_add_fonts_to_rules', 4);
+INSERT INTO `migrations` VALUES (10, '2019_02_17_075729_create_comments_tables', 5);
+INSERT INTO `migrations` VALUES (11, '2019_02_17_082524_alter_comments_time_comment', 6);
 
 -- ----------------------------
 -- Table structure for role_auth
@@ -242,7 +264,7 @@ CREATE TABLE `rules`  (
   INDEX `rules_parent_id_index`(`parent_id`) USING BTREE,
   INDEX `rules_is_hidden_index`(`is_hidden`) USING BTREE,
   INDEX `rules_status_index`(`status`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 33 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 34 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of rules
@@ -274,10 +296,11 @@ INSERT INTO `rules` VALUES (24, '状态修改', 'rules.status', 19, 1, 255, 1, '
 INSERT INTO `rules` VALUES (25, '删除权限', 'rules.destroy', 19, 1, 255, 1, '2017-11-17 13:22:30', '2017-11-17 13:22:30', NULL);
 INSERT INTO `rules` VALUES (26, '操作日志', 'actions.index', 3, 0, 255, 1, '2017-11-20 15:13:17', '2017-11-20 15:13:17', NULL);
 INSERT INTO `rules` VALUES (27, '删除日志', 'actions.destroy', 26, 1, 255, 1, '2017-11-20 15:14:01', '2017-11-20 15:14:01', NULL);
-INSERT INTO `rules` VALUES (28, '评论管理', 'comment.index', 0, 0, 255, 1, '2019-02-15 07:06:14', '2019-02-15 07:10:04', 'desktop');
+INSERT INTO `rules` VALUES (28, '评论管理', 'comment.index', 33, 0, 255, 1, '2019-02-15 07:06:14', '2019-02-17 11:58:26', 'desktop');
 INSERT INTO `rules` VALUES (29, '添加评论页面', 'comment.create', 28, 1, 255, 1, '2019-02-15 07:07:36', '2019-02-15 07:07:36', 'desktop');
 INSERT INTO `rules` VALUES (30, '保存评论', 'comment.store', 28, 1, 255, 1, '2019-02-15 07:08:13', '2019-02-15 07:08:13', 'desktop');
 INSERT INTO `rules` VALUES (31, '修改评论页面', 'comment.edit', 28, 1, 255, 1, '2019-02-15 07:08:52', '2019-02-15 07:08:52', 'desktop');
 INSERT INTO `rules` VALUES (32, '编辑评论', 'comment.update', 28, 1, 255, 1, '2019-02-15 07:09:19', '2019-02-15 07:09:19', 'desktop');
+INSERT INTO `rules` VALUES (33, '评论管理', NULL, 0, 0, 255, 1, '2019-02-17 11:58:06', '2019-02-17 11:58:06', 'desktop');
 
 SET FOREIGN_KEY_CHECKS = 1;
