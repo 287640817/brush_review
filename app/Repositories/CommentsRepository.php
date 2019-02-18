@@ -24,7 +24,7 @@ class CommentsRepository extends BaseRepository
      */
     public function ById($id)
     {
-        return $this->getRbacModel('comments', Comment::class)->find($id);
+        return $this->getRbacModel( Comment::class)->find($id);
     }
 
     /**
@@ -33,7 +33,7 @@ class CommentsRepository extends BaseRepository
      */
     public function getComments()
     {
-        return $this->getRbacModel('comments', Comment::class)->orderBy('id', 'desc')->paginate('10');
+        return $this->getRbacModel( Comment::class)->orderBy('id', 'desc')->paginate('10');
     }
 
 

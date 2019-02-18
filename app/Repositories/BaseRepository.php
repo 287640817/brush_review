@@ -10,11 +10,11 @@ namespace App\Repositories;
 
 class BaseRepository{
 
-    public function getRbacModel($model_name, $model){
+    public function getRbacModel($model){
         if(request()->user()->isAdmin()){
             return new $model();
         }
-        return request()->user()->$model_name();
+        return $model::where('admin_id', request()->user()->id);
     }
 
 }
