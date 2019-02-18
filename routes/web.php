@@ -4,9 +4,7 @@
  * 后台路由
  */
 
-Route::get("test",function(){
-    return '33333333333';
-});
+Route::get('/', 'Controller@index')->name('index');
 
 /**后台模块**/
 Route::group(['namespace' => 'Admin','prefix' => 'admin'], function (){
