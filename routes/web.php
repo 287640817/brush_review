@@ -4,7 +4,7 @@
  * 后台路由
  */
 
-Route::get('/', 'Controller@index')->name('index');
+Route::get('/', 'Controller@main');
 
 /**后台模块**/
 Route::group(['namespace' => 'Admin','prefix' => 'admin'], function (){

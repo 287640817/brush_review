@@ -11,7 +11,7 @@
  Target Server Version : 50725
  File Encoding         : 65001
 
- Date: 17/02/2019 20:07:59
+ Date: 19/02/2019 02:36:03
 */
 
 SET NAMES utf8mb4;
@@ -31,7 +31,7 @@ CREATE TABLE `action_logs`  (
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `action_logs_admin_id_index`(`admin_id`) USING BTREE,
   INDEX `action_logs_type_index`(`type`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 42 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 51 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of action_logs
@@ -77,6 +77,15 @@ INSERT INTO `action_logs` VALUES (38, NULL, '{\"ip\": \"172.19.0.1\", \"action\"
 INSERT INTO `action_logs` VALUES (39, NULL, '{\"ip\": \"172.19.0.1\", \"action\": \"管理员: zl20117 登录成功\", \"address\": \"局域网局域网\"}', '2019-02-17 11:55:29', '2019-02-17 11:55:29', 1);
 INSERT INTO `action_logs` VALUES (40, 1, '{\"ip\": \"172.19.0.1\", \"action\": \"管理员: zl20117 操作了 【权限管理】- 添加数据 模块\", \"address\": \"局域网局域网\"}', '2019-02-17 11:58:06', '2019-02-17 11:58:06', 1);
 INSERT INTO `action_logs` VALUES (41, 1, '{\"ip\": \"172.19.0.1\", \"action\": \"管理员: zl20117 操作了 【权限管理】- 数据更新 模块\", \"address\": \"局域网局域网\"}', '2019-02-17 11:58:26', '2019-02-17 11:58:26', 1);
+INSERT INTO `action_logs` VALUES (42, NULL, '{\"ip\": \"172.19.0.1\", \"action\": \"管理员: scw 登录成功\", \"address\": \"局域网局域网\"}', '2019-02-18 12:51:58', '2019-02-18 12:51:58', 1);
+INSERT INTO `action_logs` VALUES (43, NULL, '{\"ip\": \"172.19.0.1\", \"action\": \"管理员: zl20117 登录成功\", \"address\": \"局域网局域网\"}', '2019-02-18 12:52:22', '2019-02-18 12:52:22', 1);
+INSERT INTO `action_logs` VALUES (44, 1, '{\"ip\": \"172.19.0.1\", \"action\": \"管理员: zl20117 操作了 【角色管理】- 权限分配 模块\", \"address\": \"局域网局域网\"}', '2019-02-18 14:28:44', '2019-02-18 14:28:44', 1);
+INSERT INTO `action_logs` VALUES (45, NULL, '{\"ip\": \"172.19.0.1\", \"action\": \"管理员: scw 登录成功\", \"address\": \"局域网局域网\"}', '2019-02-18 14:28:57', '2019-02-18 14:28:57', 1);
+INSERT INTO `action_logs` VALUES (46, NULL, '{\"ip\": \"172.19.0.1\", \"action\": \"管理员: zl20117 登录成功\", \"address\": \"局域网局域网\"}', '2019-02-18 14:29:16', '2019-02-18 14:29:16', 1);
+INSERT INTO `action_logs` VALUES (47, 1, '{\"ip\": \"172.19.0.1\", \"action\": \"管理员: zl20117 操作了 【评论管理】- 保存评论 模块\", \"address\": \"局域网局域网\"}', '2019-02-18 14:29:39', '2019-02-18 14:29:39', 1);
+INSERT INTO `action_logs` VALUES (48, 1, '{\"ip\": \"172.19.0.1\", \"action\": \"管理员: zl20117 操作了 【评论管理】- 保存评论 模块\", \"address\": \"局域网局域网\"}', '2019-02-18 17:59:40', '2019-02-18 17:59:40', 1);
+INSERT INTO `action_logs` VALUES (49, 1, '{\"ip\": \"172.19.0.1\", \"action\": \"管理员: zl20117 操作了 【评论管理】- 保存评论 模块\", \"address\": \"局域网局域网\"}', '2019-02-18 17:59:48', '2019-02-18 17:59:48', 1);
+INSERT INTO `action_logs` VALUES (50, 1, '{\"ip\": \"172.19.0.1\", \"action\": \"管理员: zl20117 操作了 【评论管理】- 保存评论 模块\", \"address\": \"局域网局域网\"}', '2019-02-18 17:59:55', '2019-02-18 17:59:55', 1);
 
 -- ----------------------------
 -- Table structure for admin_role
@@ -100,9 +109,6 @@ INSERT INTO `admin_role` VALUES (2, 2, 2, '2017-11-12 11:21:46', '2017-11-12 11:
 INSERT INTO `admin_role` VALUES (6, 1, 1, '2017-11-13 03:13:36', '2017-11-13 03:13:36');
 INSERT INTO `admin_role` VALUES (9, 1, 3, '2019-02-15 06:32:14', '2019-02-15 06:32:14');
 INSERT INTO `admin_role` VALUES (10, 7, 3, '2019-02-15 06:33:27', '2019-02-15 06:33:27');
-INSERT INTO `admin_role` VALUES (12, 9, 1, '2019-02-15 08:57:47', '2019-02-15 08:57:47');
-INSERT INTO `admin_role` VALUES (13, 9, 3, '2019-02-15 08:57:47', '2019-02-15 08:57:47');
-INSERT INTO `admin_role` VALUES (21, 14, 3, '2019-02-15 09:47:46', '2019-02-15 09:47:46');
 
 -- ----------------------------
 -- Table structure for admins
@@ -128,10 +134,8 @@ CREATE TABLE `admins`  (
 -- ----------------------------
 -- Records of admins
 -- ----------------------------
-INSERT INTO `admins` VALUES (1, 'b9Eb', 'zl20117', '$2y$10$aJt12sastIe1NxI5dJ9OJOB6ir8Ry/Ef.AhRVuf7l2ND.58tFAEna', '/uploads/images/avatrs/201711/13//1510542803_2gM4ffLylf.jpeg', 15, '127.0.0.1', '127.0.0.1', 1, '2017-11-12 11:21:32', '2019-02-17 11:55:28', NULL);
-INSERT INTO `admins` VALUES (7, 'gjNg', 'scw', '$2y$10$EY4cs6cT1DzVgUUQc617Bu1wzk2PpSzShmPPzM7MyFwJpVWnGTDEG', NULL, 4, '172.22.0.1', '172.22.0.1', 1, '2019-02-15 06:33:27', '2019-02-15 06:41:00', NULL);
-INSERT INTO `admins` VALUES (9, 'bw3b', 'zhulei', '$2y$10$KEGAslqNLMy6FsohnZsX9uW0VsucnM6KyoZsPFk8XypYxW0W6p5CS', NULL, 0, '172.22.0.1', '172.22.0.1', 1, '2019-02-15 08:57:47', '2019-02-15 08:57:47', NULL);
-INSERT INTO `admins` VALUES (14, 'lEov', 'test', '$2y$10$LkIdn88AQqWlTOD6CcvPIer.4lKKFGkuaRMojsJ9gWCCZVaoEBTJy', NULL, 0, '172.22.0.1', '172.22.0.1', 1, '2019-02-15 09:47:45', '2019-02-15 09:47:46', '2019-02-15 00:00:00');
+INSERT INTO `admins` VALUES (1, 'b9Eb', 'zl20117', '$2y$10$aJt12sastIe1NxI5dJ9OJOB6ir8Ry/Ef.AhRVuf7l2ND.58tFAEna', '/uploads/images/avatrs/201711/13//1510542803_2gM4ffLylf.jpeg', 17, '127.0.0.1', '127.0.0.1', 1, '2017-11-12 11:21:32', '2019-02-18 14:29:16', NULL);
+INSERT INTO `admins` VALUES (7, 'gjNg', 'scw', '$2y$10$EY4cs6cT1DzVgUUQc617Bu1wzk2PpSzShmPPzM7MyFwJpVWnGTDEG', NULL, 6, '172.22.0.1', '172.22.0.1', 1, '2019-02-15 06:33:27', '2019-02-18 14:28:57', NULL);
 
 -- ----------------------------
 -- Table structure for comments
@@ -146,7 +150,31 @@ CREATE TABLE `comments`  (
   `created_at` datetime(0) NULL DEFAULT NULL COMMENT '创建时间',
   `updated_at` datetime(0) NULL DEFAULT NULL COMMENT '修改时间',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci COMMENT = '评论表' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci COMMENT = '评论表' ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of comments
+-- ----------------------------
+INSERT INTO `comments` VALUES (1, 1, 'sdfdsf', 1, 0, '2019-02-18 14:29:39', '2019-02-18 18:11:09');
+INSERT INTO `comments` VALUES (2, 1, '2222', 1, 1, '2019-02-18 17:59:40', '2019-02-18 18:28:47');
+INSERT INTO `comments` VALUES (3, 1, '3333', 2, 0, '2019-02-18 17:59:48', '2019-02-18 17:59:48');
+INSERT INTO `comments` VALUES (4, 1, '444', 1, 1, '2019-02-18 17:59:55', '2019-02-18 18:29:45');
+
+-- ----------------------------
+-- Table structure for ling_qus
+-- ----------------------------
+DROP TABLE IF EXISTS `ling_qus`;
+CREATE TABLE `ling_qus`  (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `ip` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  `time` int(11) NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of ling_qus
+-- ----------------------------
+INSERT INTO `ling_qus` VALUES (1, '172.19.0.1', 1550514585);
 
 -- ----------------------------
 -- Table structure for migrations
@@ -186,7 +214,7 @@ CREATE TABLE `role_auth`  (
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `role_auth_role_id_index`(`role_id`) USING BTREE,
   INDEX `role_auth_rule_id_index`(`rule_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 69 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 75 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of role_auth
@@ -220,6 +248,12 @@ INSERT INTO `role_auth` VALUES (65, 1, 26, '2017-11-21 09:18:31', '2017-11-21 09
 INSERT INTO `role_auth` VALUES (66, 1, 27, '2017-11-21 09:18:31', '2017-11-21 09:18:31');
 INSERT INTO `role_auth` VALUES (67, 3, 1, '2019-02-15 06:21:17', '2019-02-15 06:21:17');
 INSERT INTO `role_auth` VALUES (68, 3, 2, '2019-02-15 06:21:17', '2019-02-15 06:21:17');
+INSERT INTO `role_auth` VALUES (69, 3, 33, '2019-02-18 14:28:45', '2019-02-18 14:28:45');
+INSERT INTO `role_auth` VALUES (70, 3, 28, '2019-02-18 14:28:45', '2019-02-18 14:28:45');
+INSERT INTO `role_auth` VALUES (71, 3, 29, '2019-02-18 14:28:45', '2019-02-18 14:28:45');
+INSERT INTO `role_auth` VALUES (72, 3, 30, '2019-02-18 14:28:45', '2019-02-18 14:28:45');
+INSERT INTO `role_auth` VALUES (73, 3, 31, '2019-02-18 14:28:45', '2019-02-18 14:28:45');
+INSERT INTO `role_auth` VALUES (74, 3, 32, '2019-02-18 14:28:45', '2019-02-18 14:28:45');
 
 -- ----------------------------
 -- Table structure for roles

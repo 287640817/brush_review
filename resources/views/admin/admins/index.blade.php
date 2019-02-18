@@ -12,15 +12,15 @@
                 <table class="table table-striped table-bordered table-hover m-t-md">
                     <thead>
                     <tr>
-                        <th class="text-center" width="100">ID</th>
+                        <th class="text-center" width="80">ID</th>
                         <th>用户名</th>
-                        <th>用户权限</th>
+                        <th width="150">用户权限</th>
                         <th class="text-center">最后登录IP</th>
-                        <th class="text-center" width="150">最后登录时间</th>
-                        <th class="text-center" width="150">注册时间</th>
+                        <th class="text-center" width="130">最后登录时间</th>
+                        <th class="text-center" width="130">注册时间</th>
                         <th class="text-center" width="150">过期时间</th>
                         <th class="text-center" width="150">注册IP</th>
-                        <th class="text-center" width="80">登录次数</th>
+                        <th class="text-center" width="80">次数</th>
                         <th class="text-center" width="80">状态</th>
                         <th class="text-center" width="200">操作</th>
                     </tr>
