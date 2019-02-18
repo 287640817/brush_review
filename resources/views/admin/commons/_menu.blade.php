@@ -35,6 +35,7 @@
                 <div class="logo-element">ZL+</div>
             </li>
 
+
             @foreach(Auth::guard('admin')->user()->getMenus() as $key => $rule)
                 @if($rule['route'] == 'index.index')
                     {{--<li>--}}

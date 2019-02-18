@@ -13,6 +13,7 @@
                     <thead>
                     <tr>
                         <th class="text-center" width="100">ID</th>
+                        <th class="text-center" width="150">添加人</th>
                         <th>评论内容</th>
                         <th class="text-center" width="150">创建时间</th>
                         <th class="text-center" width="80">是否发布</th>
@@ -24,36 +25,34 @@
                     @foreach($comments as $k => $item)
                         <tr>
                             <td class="text-center">{{$item->id}}</td>
+                            <td class="text-center">{{$item->admin->name}}</td>
                             <td>{{$item->content}}</td>
                             <td class="text-center">{{$item->created_at}}</td>
-                            <td class="text-center">{{$item->is_publish}}</td>
-                            <td class="text-center">{{$item->is_used}}</td>
-                            <td class="text-center">操作</td>
-                            {{--<td class="text-center">--}}
-                                {{--@if($item->status == 1)--}}
-                                    {{--<span class="text-navy">正常</span>--}}
-                                {{--@elseif($item->status == 2)--}}
-                                    {{--<span class="text-danger">锁定</span>--}}
-                                {{--@endif--}}
-                            {{--</td>--}}
-                            {{--<td class="text-center">--}}
-                                {{--<div class="btn-group">--}}
-                                    {{--<a href="{{route('comments.edit',$item->id)}}">--}}
-                                        {{--<button class="btn btn-primary btn-xs" type="button"><i class="fa fa-paste"></i> 修改</button>--}}
-                                    {{--</a>--}}
-                                    {{--@if($item->status == 2)--}}
-                                            {{--<a href="{{route('admins.status',['status'=>1,'id'=>$item->id])}}"><button class="btn btn-info btn-xs" type="button"><i class="fa fa-warning"></i> 恢复</button></a>--}}
-                                    {{--@else--}}
-                                            {{--<a href="{{route('admins.status',['status'=>2,'id'=>$item->id])}}"><button class="btn btn-warning btn-xs" type="button"><i class="fa fa-warning"></i> 禁用</button></a>--}}
-                                    {{--@endif--}}
-                                    {{--<a href="{{route('admins.delete',$item->id)}}"><button class="btn btn-danger btn-xs" type="button"><i class="fa fa-trash-o"></i> 删除</button></a>--}}
-                                {{--</div>--}}
-                            {{--</td>--}}
+                            @php
+                                App\Presenters\PresentersFactory\CommentsPublishPresentersFactory::bind($item->is_publish)
+                            @endphp
+
+                            @inject('publish', "App\Presenters\PresentersInterFace\CommentsPublishPresentersInterface")
+                            <td class="text-center">{{$publish->showPublish($item->is_publish)}}</td>
+                            <td class="text-center">{{ $item->present()->isUsed }}</td>
+                            <td class="text-center">
+                                <div class="btn-group">
+                                    <a href="{{route('comment.edit',$item->id)}}">
+                                        <button class="btn btn-primary btn-xs" type="button"><i class="fa fa-paste"></i> 修改</button>
+                                    </a>
+                                    @if($item->is_publish == 1)
+                                            <a href="{{route('comment.publish',['publish'=>2,'id'=>$item->id])}}"><button class="btn btn-info btn-xs" type="button"><i class="fa fa-warning"></i> 发布</button></a>
+                                    @else
+                                            <a href="{{route('comment.publish',['publish'=>1,'id'=>$item->id])}}"><button class="btn btn-warning btn-xs" type="button"><i class="fa fa-warning"></i> 不发布</button></a>
+                                    @endif
+                                    <a href="{{route('comment.delete',$item->id)}}"><button class="btn btn-danger btn-xs" type="button"><i class="fa fa-trash-o"></i> 删除</button></a>
+                                </div>
+                            </td>
                         </tr>
                     @endforeach
                     </tbody>
                 </table>
-                {{$admins->links()}}
+                {{$comments->links()}}
             </form>
         </div>
     </div>

@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 class BaseController extends Controller
 {
 
+
     /**
      * 自动获取对应的模块名称和
      * @param null $view

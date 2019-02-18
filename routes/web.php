@@ -42,6 +42,8 @@ Route::group(['namespace' => 'Admin','prefix' => 'admin'], function (){
 
         Route::resource('actions','ActionLogsController',['only'=> ['index','destroy'] ]);  //日志
 
-        Route::resource('comment', 'CommentController');//评论
+        Route::get('comment/publish/{publish}/{id}', ['uses' => 'CommentController@publish', 'as' => 'comment.publish']);
+        Route::get('comment/delete/{id}', ['uses' => 'CommentController@delete', 'as' => 'comment.delete']);
+        Route::resource('comment', 'CommentController', ['except' => ['show', 'destory']]);//评论
     });
 });

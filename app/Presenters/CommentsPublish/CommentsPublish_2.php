@@ -8,8 +8,8 @@
 namespace App\Presenters\CommentsPublish;
 
 use App\Presenters\PresentersInterFace\CommentsPublishPresentersInterface as ComPuInterface;
-class CommentsPublish_0 implements ComPuInterface{
+class CommentsPublish_2 implements ComPuInterface{
     public function showPublish($is_publish) : string {
-        return '0';
+        return '否';
     }
 }

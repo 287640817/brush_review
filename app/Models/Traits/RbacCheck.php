@@ -22,6 +22,16 @@ use Cache;
 
 trait RbacCheck
 {
+
+    public function isAdmin(){
+        if (!in_array(1, $this->roles->pluck('id')->toArray()))
+        {
+            return false;
+        }
+        return true;
+    }
+
+
     // 缓存相关配置
     protected $cache_key = '_cache_rules';
 

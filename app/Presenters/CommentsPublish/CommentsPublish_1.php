@@ -10,6 +10,6 @@ namespace App\Presenters\CommentsPublish;
 use App\Presenters\PresentersInterFace\CommentsPublishPresentersInterface as ComPuInterface;
 class CommentsPublish_1 implements ComPuInterface{
     public function showPublish($is_publish) : string {
-        return '1';
+        return '是';
     }
 }

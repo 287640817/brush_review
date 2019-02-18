@@ -3,18 +3,20 @@
 namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\AddCommentsRequest;
-use App\Repositories\CommentsRepository;
-//use App\Presenters\PresentersFactory\CommentsPublishPresentersFactory;
+use App\Repositories\CommentsRepository as comm;
+use App\Services\CommentsService;
+use App\Http\Requests\Admin\UpdateCommentsRequest;
 
-class CommentController extends Controller
+class CommentController extends BaseController
 {
 
     protected $commentsRepository;
+    protected $commentsService;
 
-    public function __construct(CommentsRepository $commentsRepository){
+    public function __construct(comm $commentsRepository, CommentsService $commentsService){
         $this->commentsRepository = $commentsRepository;
+        $this->commentsService = $commentsService;
     }
     /**
      * Display a listing of the resource.
@@ -25,7 +27,7 @@ class CommentController extends Controller
     {
         $comments = $this->commentsRepository->getComments();
 //        CommentsPublishPresentersFactory::bind()
-        return $this->view('admin.comment.index', compact('comments'));
+        return view('admin.comment.index', compact('comments'));
     }
 
     /**
@@ -35,7 +37,7 @@ class CommentController extends Controller
      */
     public function create()
     {
-
+        return view('admin.comment.create');
     }
 
     /**
@@ -46,21 +48,11 @@ class CommentController extends Controller
      */
     public function store(AddCommentsRequest $request)
     {
-//        $this->adminsService->create($request);
-//        flash('评论成功')->success()->important();
-//        return redirect()->route('comments.index');
+        $this->commentsRepository->create($request->all());
+        flash('添加评论成功')->success()->important();
+        return redirect()->route('comment.index');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
 
     /**
      * Show the form for editing the specified resource.
@@ -70,7 +62,8 @@ class CommentController extends Controller
      */
     public function edit($id)
     {
-        //
+        $comments = $this->commentsRepository->ById($id);
+        return view('admin.comment.edit', compact('comments'));
     }
 
     /**
@@ -80,9 +73,10 @@ class CommentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdateCommentsRequest $request, $id)
     {
-        //
+        $this->commentsService->update($request, $id);
+        return redirect()->route('comment.index');
     }
 
     /**
@@ -91,8 +85,15 @@ class CommentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function delete($id)
     {
-        //
+        $this->commentsService->destory($id);
+
+        return redirect()->route('comment.index');
+    }
+
+    public function publish($publish, $id){
+        $this->commentsService->publish($publish, $id);
+        return redirect()->route('comment.index');
     }
 }

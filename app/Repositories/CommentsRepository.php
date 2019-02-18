@@ -1,33 +1,20 @@
 <?php
-/**
- * YICMS
- * ============================================================================
- * 版权所有 2014-2017 YICMS，并保留所有权利。
- * 网站地址: http://www.yicms.vip
- * ----------------------------------------------------------------------------
- * 这不是一个自由软件！
- * 不允许对程序代码以任何形式任何目的的再发布。
- * ============================================================================
- * Created by PhpStorm.
- * Author: kenuo
- * Date: 2017/11/13
- * Time: 上午9:54
- */
 namespace App\Repositories;
-
 use App\Models\Comment;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
+use App\Repositories\BaseRepository;
 
-class CommentsRepository
+class CommentsRepository extends BaseRepository
 {
+
     /**
      * 创建评论
      * @param array $params
      * @return mixed
      */
-    public function create(array $params)
+    public function create($data)
     {
-        return Auth::guard('admin')->comments->create($params);
+        return request()->user()->comments()->create($data);
     }
 
     /**
@@ -37,25 +24,19 @@ class CommentsRepository
      */
     public function ById($id)
     {
-        return Auth::guard('admin')->comments->find($id);
+        return $this->getRbacModel(Comment::class)::find($id);
     }
 
     /**
-     * 获取评论列表 with ('roles')
+     * 获取评论列表
      * @return \Illuminate\Contracts\Pagination\LengthAwarePaginator
      */
     public function getComments()
     {
-        return Auth::guard('admin')->comments->paginate('10');
+        return $this->getRbacModel(Comment::class)::paginate('10');
     }
 
-    /**
-     * 根据name查询评论资料
-     * @param $content
-     * @return mixed
-     */
-    public function ByName($content)
-    {
-        return Auth::guard('admin')->comments->where('content','like',"%{$content}%")->first();
-    }
+
+
+
 }
